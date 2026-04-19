@@ -21,7 +21,7 @@ public class Vehicle : MonoBehaviour
 
     void Start()
     {
-        checkDist = GetComponent<BoxCollider>().size.z / 2 * 1.2f;
+        checkDist = GetComponent<BoxCollider>().size.z / 2 * 1.4f;
     }
     void FixedUpdate()
     {
@@ -29,7 +29,6 @@ public class Vehicle : MonoBehaviour
     }
     void Update()
     {
-        Debug.DrawRay(transform.position, Vector3.back*checkDist, Color.blue);
         CheckForOutofBound();
         RunBehavior();
     }
