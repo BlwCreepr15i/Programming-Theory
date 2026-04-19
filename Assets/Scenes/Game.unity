@@ -251,6 +251,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1893501081}
     m_Modifications:
+    - target: {fileID: 1576661596919831053, guid: 0fe65fec31a96cc49a3146a03f035c48, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5260566825059285769, guid: 0fe65fec31a96cc49a3146a03f035c48, type: 3}
       propertyPath: m_Name
       value: Road_Straight 2
@@ -1234,6 +1238,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1893501081}
     m_Modifications:
+    - target: {fileID: 1576661596919831053, guid: 0fe65fec31a96cc49a3146a03f035c48, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5260566825059285769, guid: 0fe65fec31a96cc49a3146a03f035c48, type: 3}
       propertyPath: m_Name
       value: Road_Straight 1
@@ -1366,6 +1374,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1893501081}
     m_Modifications:
+    - target: {fileID: 1576661596919831053, guid: 0fe65fec31a96cc49a3146a03f035c48, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5260566825059285769, guid: 0fe65fec31a96cc49a3146a03f035c48, type: 3}
       propertyPath: m_Name
       value: Road_Straight 6
@@ -1808,6 +1820,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1893501081}
     m_Modifications:
+    - target: {fileID: 1576661596919831053, guid: 0fe65fec31a96cc49a3146a03f035c48, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5260566825059285769, guid: 0fe65fec31a96cc49a3146a03f035c48, type: 3}
       propertyPath: m_Name
       value: Road_Straight 4
@@ -2002,6 +2018,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1893501081}
     m_Modifications:
+    - target: {fileID: 1576661596919831053, guid: 0fe65fec31a96cc49a3146a03f035c48, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5260566825059285769, guid: 0fe65fec31a96cc49a3146a03f035c48, type: 3}
       propertyPath: m_Name
       value: Road_Straight 3
@@ -2072,6 +2092,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1893501081}
     m_Modifications:
+    - target: {fileID: 1576661596919831053, guid: 0fe65fec31a96cc49a3146a03f035c48, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5260566825059285769, guid: 0fe65fec31a96cc49a3146a03f035c48, type: 3}
       propertyPath: m_Name
       value: Road_Straight 5
