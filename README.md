@@ -7,4 +7,5 @@ Four components of OOP will be applied:
 - Encapsulation
 
 ##
-A MVP is desired but not required. Should take at most one week to implement everything.
+A MVP is not required. Should take a week to implement everything. \
+**Update:** This mini project has successfully concluded on Apr 19th, 2026, despite achieving things less than what were initially planned.
