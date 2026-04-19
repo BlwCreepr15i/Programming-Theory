@@ -1,33 +1,72 @@
+using System.Collections;
 using UnityEngine;
 
 public class Vehicle : MonoBehaviour
 {
     // Variables
-    
     [SerializeField]
-    private float speed = 25;
+    protected LayerMask vehicleLayer;
+    private float checkDist;
+    [SerializeField]
+    protected bool isOccupied;
+    [SerializeField]
+    protected float speed = 15;
+    [SerializeField]
     protected float speedIncreaseMult = 1.1f;
+    protected float speedIncreaseDuration = 1.0f;
+    [SerializeField]
+    protected AudioClip honkSound;
 
-    public Vector3 moveDirection = Vector3.forward;
-    public AudioClip honkSound { get; private set; }
+    private float zBound = -19;
 
     void Start()
     {
-        
+        checkDist = GetComponent<BoxCollider>().size.z / 2 * 1.2f;
+    }
+    void FixedUpdate()
+    {
+        isOccupied = IsFrontOccupied();
+    }
+    void Update()
+    {
+        Debug.DrawRay(transform.position, Vector3.back*checkDist, Color.blue);
+        CheckForOutofBound();
+        RunBehavior();
     }
 
-    public void IncreaseSpeed()
+    protected virtual void RunBehavior()
     {
-        speed *= speedIncreaseMult;
+        if (isOccupied)
+        {
+            Honk();
+        } else
+        {
+            Move();
+        }
     }
 
-    public void Honk()
+    protected void CheckForOutofBound()
     {
-        AudioSource.PlayClipAtPoint(honkSound, transform.position);
+        if (transform.position.z <= zBound)
+        {
+            Destroy(gameObject);
+        }
     }
 
-    public void Move()
+    protected virtual bool IsFrontOccupied()
     {
-        transform.Translate(moveDirection * Time.deltaTime * speed);
+        RaycastHit hit;
+        return Physics.Raycast(transform.position, Vector3.back, out hit, checkDist, vehicleLayer); 
+    }
+
+    public virtual void Honk()
+    {
+        // TBI
+        // AudioSource.PlayClipAtPoint(honkSound, transform.position);
+    }
+
+    public virtual void Move() // virtual means can be overridden
+    {
+        transform.Translate(Vector3.back * Time.deltaTime * speed);
     }
 }

@@ -1,9 +1,35 @@
+using System.Collections;
 using UnityEngine;
 
 public class Car : Vehicle
 {
-    private float speed = 45;
-    private new float speedIncreaseMult = 1.2f;
-    public new AudioClip honkSound { get; private set; }
+    protected bool isBoosting;
+    
+    protected override void RunBehavior()
+    {
+        if (isOccupied)
+        {
+            if (isBoosting) return;
 
+            Honk();
+            TempSpeedChange();
+            return;
+        }
+
+        Move();
+    }
+    
+    protected void TempSpeedChange()
+    {
+        StartCoroutine(TempBoost());
+    }
+
+    IEnumerator TempBoost()
+    {
+        isBoosting = true;
+        speed *= speedIncreaseMult;
+        yield return new WaitForSeconds(speedIncreaseDuration);
+        speed /= speedIncreaseMult;
+        isBoosting = false;
+    }
 }
