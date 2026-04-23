@@ -8,4 +8,5 @@ Four components of OOP will be applied:
 
 ##
 A MVP is not required. Should take a week to implement everything. \
-**Update:** This mini project has successfully concluded on Apr 19th, 2026, despite achieving things less than what were initially planned.
+**4/22/2026 Update:** This OOP objective has be met successfully, and is ready to be submitted to Jr. programmer submission box. :) \
+Because the product is still not playable, more contents might be added later.
