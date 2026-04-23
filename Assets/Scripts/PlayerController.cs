@@ -1,3 +1,4 @@
+using System;
 using Unity.Mathematics;
 using UnityEngine;
 
@@ -42,5 +43,12 @@ public class PlayerController : MonoBehaviour
         {
             transform.position = new Vector3(xBound, transform.position.y, transform.position.z);
         }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (!other.gameObject.CompareTag("Vehicle")) return;
+        // gameOver = true;
+        Debug.Log("Collided with vehicle!");
     }
 }
