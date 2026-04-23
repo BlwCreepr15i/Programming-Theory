@@ -6,8 +6,8 @@ public class SpawnManager : MonoBehaviour
 {   
     [SerializeField]
     private List<Vehicle> vehicles;
-    private float minSpawnInterval = 0.5f;
-    private float maxSpawnInterval = 3.0f;
+    private float minSpawnInterval = 1.2f;
+    private float maxSpawnInterval = 4.7f;
     private float spawnPosY = 1;
     private float spawnPosZ = 16;
     private float[] spawnPosX = {-4.5f, -1.75f, 1.5f, 4.5f};
