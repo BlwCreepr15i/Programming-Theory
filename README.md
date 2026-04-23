@@ -7,4 +7,6 @@ Four components of OOP will be applied:
 - Encapsulation
 
 ##
-A MVP is desired but not required. Should take at most one week to implement everything.
+A MVP is not required. Should take a week to implement everything. \
+**4/22/2026 Update:** This OOP objective has be met successfully, and is ready to be submitted to Jr. programmer submission box. :) \
+Because the product is still not playable, more contents might be added later.
