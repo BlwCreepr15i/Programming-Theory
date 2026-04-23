@@ -11,5 +11,13 @@ public class Motorcycle : Vehicle
     {
         return false;
     }
-    
+
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Vehicle"))
+        {
+            Destroy(gameObject);
+        }
+    }
+
 }
