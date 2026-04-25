@@ -1,22 +1,22 @@
-using System;
 using Unity.Mathematics;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField]
     private float speed = 15f;
     private float xBound = 5.2f;
+    private GameManager gameManager;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        gameManager = GameObject.Find("Game Manager").GetComponent<GameManager>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (GameManager.gameOver) return;
         KeyboardMovement();
     }
 
@@ -48,7 +48,6 @@ public class PlayerController : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (!other.gameObject.CompareTag("Vehicle")) return;
-        // gameOver = true;
-        Debug.Log("Collided with vehicle!");
+        gameManager.EndGame();
     }
 }

@@ -12,22 +12,31 @@ public class SpawnManager : MonoBehaviour
     private float spawnPosZ = 16;
     private float[] spawnPosX = {-4.5f, -1.75f, 1.5f, 4.5f};
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    private List<Coroutine> spawnCoroutines;
+
+    public void Initiate()
     {
+        spawnCoroutines = new List<Coroutine>();
         foreach (float xPos in spawnPosX)
         {
-            StartCoroutine(RepeatlySpawnVehicle(xPos));
+            spawnCoroutines.Add(StartCoroutine(RepeatlySpawnVehicle(xPos)));
         }
     }
 
+    void Update()
+    {
+        if (GameManager.gameOver)
+        {
+            StopAllCoroutines();
+        }
+    } 
+
     IEnumerator RepeatlySpawnVehicle(float xPos) // Coroutine is used since InvokeRepeating doesn't support calling with parameters
     {
-        while (true)
+        while (!GameManager.gameOver)
         {
             SpawnVehicleAtPos(xPos);
             yield return new WaitForSeconds(GetSpawnInterval());
-            // break here if needed
         }
     }
 
@@ -45,5 +54,14 @@ public class SpawnManager : MonoBehaviour
     private Vehicle GetRandomVehicle()
     {
         return vehicles[Random.Range(0, vehicles.Count)];
+    }
+
+    public void DespawnAllVehicles()
+    {
+        GameObject[] vehicles = GameObject.FindGameObjectsWithTag("Vehicle");
+        foreach (GameObject vehicle in vehicles)
+        {
+            Destroy(vehicle);
+        }
     }
 }
