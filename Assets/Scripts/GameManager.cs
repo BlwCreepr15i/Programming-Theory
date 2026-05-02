@@ -1,11 +1,16 @@
+using System.Collections;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {   
     public static bool gameOver { get; private set; }
     public Canvas canvas;
+    public int score;
+
     private GameUIHandler gameUIHandler;
     private SpawnManager spawnManager;
+    private float scoreIncreaseDelay = 4.0f;
+    private float scoreIncreaseTime = 2.0f;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -16,18 +21,19 @@ public class GameManager : MonoBehaviour
         StartGame();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void StartGame()
     {
         gameOver = false;
+        score = 0;
         gameUIHandler.DisableGameOverScreen();
         spawnManager.Initiate();
-        
+        InvokeRepeating("IncreaseScore", scoreIncreaseDelay, scoreIncreaseTime); // score increases for every x seconds passed
+    }
+
+    private void IncreaseScore()
+    {
+        score++;
+        gameUIHandler.UpdateScore(); // UI will reflect changes on score
     }
 
     public void EndGame()
@@ -35,5 +41,6 @@ public class GameManager : MonoBehaviour
         gameOver = true;
         gameUIHandler.ShowGameOverScreen();
         spawnManager.DespawnAllVehicles();
+        CancelInvoke(); // Cancels all InvokeRepeating schedules (stops increasing scores)
     }
 }
